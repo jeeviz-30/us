@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Boyfriend's Day ♥ A Little Corner Just For You</title>
+  
+  <!-- Romantic & Editorial Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Canvas Confetti & HTML2Canvas for Certificate Download -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <!-- Floating Hearts Background Container -->
+  <div id="hearts-bg" aria-hidden="true"></div>
+
+  <!-- Floating Music & Settings Bar (Top-Right) -->
+  <header class="top-bar">
+    <button class="pill-btn music-pill" id="musicToggleBtn" title="Toggle Music">
+      <span class="music-icon" id="musicIcon">🎵</span>
+      <span class="music-label" id="musicLabel">Rathinamo</span>
+      <span class="equalizer-bars" id="eqBars">
+        <i></i><i></i><i></i>
+      </span>
+    </button>
+    <button class="pill-btn edit-pill" id="openSettingsBtn" title="Personalize Names & Song">
+      ✏️ Customize
+    </button>
+  </header>
+
+  <!-- PAGE 1: ENVELOPE (Tap to Open) -->
+  <section id="pg1" class="page">
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelopeBox">
+        <div class="flap"></div>
+        <div class="letter-peek">
+          <h2>Hey You!</h2>
+          <p>I made a little something<br>just for you...</p>
+          <span class="sub-peek">happy boyfriend's day ✿</span>
+        </div>
+        <div class="front"></div>
+        <div class="stamp">BOYFRIEND'S DAY</div>
+        <div class="heart-seal" id="heartSeal">♥</div>
+        <img class="cat-sticker" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ejQ5bmwwb3ZuamNpZXF1NDV6b3YzbHk2YmF3YWh0OG8wcDc4MzlyNCZlcD12MV9zdGlja2Vyc19yZWxhdGVkJmN0PXM/eAot8Ldr85y3peseC3/giphy.gif" alt="Cute Cat">
+      </div>
+      <p class="tap-hint">✦ TAP ENVELOPE TO OPEN WITH LOVE ✦</p>
+    </div>
+  </section>
+
+  <!-- PAGE 2: HERO & MUSIC PLAYER -->
+  <section id="pg2" class="page hidden">
+    <div class="sec">
+      <p class="eyebrow">HAPPY BOYFRIEND'S DAY</p>
+      <h1 class="title" id="vTitle">To My Favorite Boy</h1>
+      <span class="ribbon" id="vRibbon">from Jeevitha ✿</span>
+
+      <div class="hero">
+        <div class="polaroid-wrapper">
+          <div class="polaroid hero-polaroid">
+            <img src="assets/images/photo1.jpg" id="heroPhoto" alt="Us Together">
+            <p class="polaroid-caption">My favorite human in the whole world ♥</p>
+          </div>
+        </div>
+        
+        <div class="msg-card">
+          <div class="quote-mark">“</div>
+          <p id="vMsg">
+            Every single day with you reminds me how lucky I am. You bring so much peace, laughter, and warmth into my life. 
+            So instead of just a simple text, I made this little corner of the internet just for us. 
+            Stay a while... there's a lot of sweet memories waiting for you here.
+          </p>
+          <div class="sign-hand">forever yours, <b id="heroSignName">Jeevitha</b></div>
+        </div>
+      </div>
+
+      <!-- Cute Gifs Row -->
+      <div class="minis" id="minis">
+        <div class="mini-frame"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXJ2dTFuNDRqcWxmMDV6ejZ6MHg5MTlqcG9uYm0wN2lkd2wwN2s3ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QO6gybBh0d4LLTNn1d/giphy.gif" alt="Love"></div>
+        <div class="mini-frame bump"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXJ2dTFuNDRqcWxmMDV6ejZ6MHg5MTlqcG9uYm0wN2lkd2wwN2s3ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Ey9c4OTwlZWCuVafkZ/giphy.gif" alt="Cuddle"></div>
+        <div class="mini-frame"><img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXJ2dTFuNDRqcWxmMDV6ejZ6MHg5MTlqcG9uYm0wN2lkd2wwN2s3ZyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tAnKxPsuWqmuBuHD0Y/giphy.gif" alt="Happy"></div>
+      </div>
+
+      <!-- Music Player Card -->
+      <div class="player-card">
+        <div class="album-art-wrap">
+          <img src="assets/images/photo2.jpg" id="pArt" alt="Album Cover">
+          <div class="disc-glow"></div>
+        </div>
+        <div class="pm">
+          <div class="now-badge">NOW PLAYING • OUR SONG</div>
+          <h3 id="songTitle">Rathinamo (Female Version)</h3>
+          <small id="songArtist">Tanisha Gnanavel • The song that feels like you</small>
+          
+          <div class="ctl">
+            <button class="play-btn" id="pplay" aria-label="Play or pause audio">▶</button>
+            <div class="bar-container" id="pbar" title="Seek">
+              <div class="bar-fill" id="pfill"></div>
+            </div>
+            <span class="tm" id="ptime">0:00 / 0:00</span>
+          </div>
+
+          <div class="audio-picker-inline">
+            <label class="custom-audio-label" for="customAudioInput">
+              📁 Choose another MP3 file / song
+            </label>
+            <input type="file" id="customAudioInput" accept="audio/*" class="sr-only">
+          </div>
+        </div>
+      </div>
+
+      <p class="hand-hint">press play — this melody is dedicated to every memory with you ✿</p>
+      <button class="btn albumBtn" id="albumBtn">See Our Memory Wall →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 3: THE MEMORY WALL (Flip Cards) -->
+  <section id="pg3" class="page hidden">
+    <div class="sec">
+      <p class="eyebrow">THE MEMORY WALL</p>
+      <h2 class="title sub">Tap To Flip Each Moment</h2>
+      <p class="hand" style="font-size:26px">every photo has a secret note written on the back for you ✿</p>
+
+      <div class="wall" id="wall">
+        <!-- Card 1 -->
+        <button class="flip" aria-label="Flip photo 1">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo1.jpg" alt="Memory 1">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>The day you became my favourite notification & my safest place in this whole world.</p>
+              <span class="card-heart">♥</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 2 -->
+        <button class="flip" aria-label="Flip photo 2">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo2.jpg" alt="Memory 2">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>This goofy, handsome smile of yours is still my biggest weakness. Always keep smiling like this!</p>
+              <span class="card-heart">✿</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 3 -->
+        <button class="flip" aria-label="Flip photo 3">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo3.jpg" alt="Memory 3">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>Just walking next to you, hand in hand, makes ordinary days feel like pure movie scenes.</p>
+              <span class="card-heart">♥</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 4 -->
+        <button class="flip" aria-label="Flip photo 4">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo4.jpg" alt="Memory 4">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>I would choose you in every lifetime, in every universe, without a second thought. Always you.</p>
+              <span class="card-heart">✿</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 5 -->
+        <button class="flip" aria-label="Flip photo 5">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo1.jpg" alt="Memory 5" style="filter: saturate(1.1) brightness(1.03);">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>Thank you for listening to my infinite talks, dealing with my moods, and loving me endlessly.</p>
+              <span class="card-heart">♥</span>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 6 -->
+        <button class="flip" aria-label="Flip photo 6">
+          <span class="pin"></span>
+          <div class="flip-inner">
+            <figure class="front-face">
+              <img src="assets/images/photo3.jpg" alt="Memory 6" style="filter: contrast(1.05);">
+              <div class="flip-tag">TAP TO FLIP ↺</div>
+            </figure>
+            <div class="back-face">
+              <p>To be continued... our little love story is my favorite story of all time. Forever and always ✿</p>
+              <span class="card-heart">♥</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <button class="btn" id="toCertBtn" style="margin-top:36px">See Your Official Certificate →</button>
+    </div>
+  </section>
+
+  <!-- PAGE 4: BOYFRIEND CERTIFICATE -->
+  <section id="pg4" class="page hidden">
+    <div class="sec cert-section">
+      <p class="eyebrow">OFFICIALLY OFFICIAL</p>
+      <h2 class="title sub">The Boyfriend Certificate</h2>
+
+      <div class="cert-outer" id="certBox">
+        <div class="cert-in">
+          <div class="seal">
+            OFFICIAL<br>SEAL<br>★ 100% ★
+          </div>
+          
+          <p class="k">CERTIFICATE OF BOYFRIENDSHIP</p>
+          <h2 class="cert-heading">Certified Best Boyfriend</h2>
+          <p class="cert-subtext">This is proudly and lovingly awarded to</p>
+          
+          <div class="who-box">
+            <span class="who" id="cWho">My Dearest Boyfriend</span>
+          </div>
+
+          <div class="cph-frame">
+            <img class="cph" id="cPh" src="assets/images/photo4.jpg" alt="The Certified Boyfriend">
+          </div>
+
+          <p class="cert-intro">is hereby crowned the one and only official boyfriend, with these lifelong duties & privileges:</p>
+
+          <ul class="terms">
+            <li><b>Chief Banter Officer:</b> Responsible for all cute smiles, silly jokes, and daily hugs. No sick leaves, no excuses!</li>
+            <li><b>Safe Haven & 24/7 Hotline:</b> Mandatory listener for all rants, happy dances, and random 2 AM philosophical thoughts.</li>
+            <li><b>Laughter Guarantee:</b> Obligated to laugh at all my jokes — especially the terrible ones.</li>
+            <li><b>Snack & Fries Tax:</b> All french fries and tasty snacks must be shared 50/50 without resistance.</li>
+            <li><b>Lifetime Validity:</b> Non-transferable, non-refundable, valid for eternity with unlimited affection.</li>
+          </ul>
+
+          <div class="sigs">
+            <div>
+              <b id="cFrom">Jeevitha</b>
+              <small>issued with all my love ♥</small>
+            </div>
+            <div>
+              <b class="sig-seal">Verified Match 🐾</b>
+              <small>official witness of cuteness</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-actions">
+        <button class="btn" id="dlCert">Download Certificate ⬇</button>
+        <button class="btn ghost" id="toLetterBtn">A Final Note For You →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 5: NOTE FOR YOU -->
+  <section id="pg5" class="page hidden">
+    <div class="sec letter-section">
+      <p class="hand" style="font-size:28px">✿ one last thing ✿</p>
+      <h2 class="title sub">A Love Note For You</h2>
+
+      <div class="letter2">
+        <!-- Pinned Polaroids around the note -->
+        <div class="pp pa">
+          <img src="assets/images/photo2.jpg" id="lp0" alt="Us Moment 1">
+        </div>
+        <div class="pp pb">
+          <img src="assets/images/photo3.jpg" id="lp1" alt="Us Moment 2">
+        </div>
+        <div class="pp pc">
+          <img src="assets/images/photo1.jpg" id="lp2" alt="Us Moment 3">
+        </div>
+
+        <div class="note-paper" id="note">
+          <p class="greeting">Hey <span id="noteReceiver">My Love</span>,</p>
+          <div class="note-body" id="noteBody">
+            I'm not always great at saying everything out loud, so I built this special page instead.<br><br>
+            Having you in my life makes every ordinary moment sweeter. You make me laugh when I'm stressed, you listen to me with endless patience, and you make me feel so safe and cherished.<br><br>
+            I hope today reminds you how deeply valued and loved you are. Whatever comes our way in life, remember that you've got a girl permanently in your corner — cheering for you, loving you, and proud of you every single day.
+          </div>
+          <div class="note-closing">
+            always & forever yours,<br>
+            <span class="sig" id="noteSender">Jeevitha ♥</span>
+          </div>
+        </div>
+
+        <img class="cat2" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ejQ5bmwwb3ZuamNpZXF1NDV6b3YzbHk2YmF3YWh0OG8wcDc4MzlyNCZlcD12MV9zdGlja2Vyc19yZWxhdGVkJmN0PXM/eAot8Ldr85y3peseC3/giphy.gif" alt="Cute Sticker">
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="final-actions">
+        <button class="btn love-burst-btn" id="burstBtn">Send Love & Confetti ♥</button>
+        <button class="btn ghost" id="restartBtn">Replay From Start ↺</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM FLOATING NAVIGATION BAR -->
+  <nav id="nav" class="hidden">
+    <button class="btn ghost nv" id="back">← Back</button>
+    <div id="dots">
+      <i class="dot on" data-step="1"></i>
+      <i class="dot" data-step="2"></i>
+      <i class="dot" data-step="3"></i>
+      <i class="dot" data-step="4"></i>
+      <i class="dot" data-step="5"></i>
+    </div>
+    <button class="btn nv show" id="next">Open ✉</button>
+  </nav>
+
+  <!-- CUSTOMIZE / SETTINGS MODAL -->
+  <div id="settingsModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeSettingsModal" aria-label="Close">×</button>
+      <h2>Personalize Your Page ✿</h2>
+      <p class="modal-desc">Customize your boyfriend's name, your name, and message anytime!</p>
+
+      <div class="input-group">
+        <label for="inputSender">Your Name</label>
+        <input type="text" id="inputSender" placeholder="e.g. Jeevitha" value="Jeevitha">
+      </div>
+
+      <div class="input-group">
+        <label for="inputReceiver">His Name</label>
+        <input type="text" id="inputReceiver" placeholder="e.g. Rahul / My Handsome" value="My Love">
+      </div>
+
+      <div class="input-group">
+        <label for="inputSongTitle">Song Name</label>
+        <input type="text" id="inputSongTitle" placeholder="e.g. Rathinamo (Female Version)" value="Rathinamo (Female Version)">
+      </div>
+
+      <div class="input-group">
+        <label for="inputNoteMessage">Personal Love Note Message</label>
+        <textarea id="inputNoteMessage" rows="4" placeholder="Write your heartfelt note here..."></textarea>
+      </div>
+
+      <div class="modal-buttons">
+        <button class="btn" id="saveSettingsBtn">Save & Apply Changes ♥</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element with multiple fallback sources -->
+  <audio id="aud" preload="auto" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    <source src="assets/audio/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
